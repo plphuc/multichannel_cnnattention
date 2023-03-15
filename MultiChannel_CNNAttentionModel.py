@@ -22,11 +22,11 @@ class MultiChannel_CNNAttentionModel(nn.Module):
         self.cnn = CNNModel(bert, output_dim, dropout, n_filters, filter_sizes)
         self.attention = AttentionModel(bert, batch_size, output_dim, hidden_dim, vocab_size, embedding_length)
 
-    def forward(self, text):
+    def forward(self, text, batch_size):
         with torch.no_grad():
             input = self.bert(text)[0]
         cnn_output = self.cnn(input)
-        attention_output = self.attention(input, batch_size = len(input))
+        attention_output = self.attention(input, batch_size)
 
         print(cnn_output.shape)
         print(attention_output.shape)
