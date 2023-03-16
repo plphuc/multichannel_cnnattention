@@ -1,5 +1,5 @@
-from MultiChannel_CNNAttentionModel.CNNModel import CNNModel
-from MultiChannel_CNNAttentionModel.SelfAttentionModel import AttentionModel
+from CNNModel import CNNModel
+from SelfAttentionModel import AttentionModel
 
 import torch
 import torch.nn as nn
